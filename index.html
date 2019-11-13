@@ -59,18 +59,18 @@
       document.getElementById("description-photo").value = text;
     }
 
-    generateContent()
+    generateContent();
 
-
-    fetch('https://palett.es/API/v1/palette')
+    fetch('http://palett.es/API/v1/palette')
             .then(function (response) {
               return response.json();
             })
             .then(function (myJson) {
               myJson.map( (color, i)=>{
+                console.log(myJson);
                 document.getElementById("bg-"+i).style.background = color;
               })
-              console.log(myJson);
+
             });
   </script>
 </html>
