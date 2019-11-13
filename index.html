@@ -7,15 +7,15 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-  <div class="container-fluid">
-    <div class="row">
-      <div id="bg-1" class="col-12" style="background-color: #354e58; height: 30px"></div>
-      <div id="bg-2" class="col-12" style="background-color: #364e58; height: 30px"></div>
-      <div id="bg-3" class=" col-12" style="background-color: #384e58; height: 30px"></div>
-      <div id="bg-4" class="col-12" style="background-color: #332e58; height: 30px"></div>
-      <div id="bg-5" class="col-12" style="background-color: #331e58; height: 30px"></div>
-    </div>
-    <div class="row">
+  <div class="container">
+<!--    <div class="row">-->
+<!--      <div id="bg-1" class="col-12" style="background-color: #354e58; height: 30px"></div>-->
+<!--      <div id="bg-2" class="col-12" style="background-color: #364e58; height: 30px"></div>-->
+<!--      <div id="bg-3" class=" col-12" style="background-color: #384e58; height: 30px"></div>-->
+<!--      <div id="bg-4" class="col-12" style="background-color: #332e58; height: 30px"></div>-->
+<!--      <div id="bg-5" class="col-12" style="background-color: #331e58; height: 30px"></div>-->
+<!--    </div>-->
+    <div class="row" id="bg-0">
       <div class="col-12 mt-5">
         <h1>Contenido</h1>
         <div class="form-group">
@@ -57,6 +57,21 @@
       const hora = new Date().getTime();
       let text = `\n new Date().getTime() \n ${hora} \n PH: @ \n \n #color #chile #photography #colorpalettes`;
       document.getElementById("description-photo").value = text;
+      document.getElementById("bg-0").style.background = colors();
+    }
+
+    function colors() {
+      let colorArray = [];
+
+      for(let i =0; i < 3 ; i++){
+        colorArray.push(Math.floor(Math.random() * (255 - 0) + 0));
+      }
+      // rgb -> hex
+      let color = colorArray
+              .map( x => x.toString(16))
+              .join('');
+
+      return `#${color}`;
     }
 
     generateContent();
