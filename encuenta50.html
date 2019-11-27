@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Story PP</title>
+    <link href="https://fonts.googleapis.com/css?family=Alatsi&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Alatsi', sans-serif;
+        }
+
+        .container-encuenta {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            height: 100vh;
+        }
+
+        .caja-encuesta {
+            background-color: red;
+            flex: 50;
+        }
+
+        .container-color {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container-encuenta">
+    <div class="caja-encuesta" id="caja-1">
+        <div class="container-color" id="caja-text-1">
+        </div>
+    </div>
+    <div class="caja-encuesta" id="caja-2">
+        <div class="container-color" id="caja-text-2">
+        </div>
+    </div>
+</div>
+<script>
+    function colors() {
+        let colorArray = [];
+
+        for (let i = 0; i < 3; i++) {
+            colorArray.push(Math.floor(Math.random() * (255 - 0) + 0));
+        }
+        let color = colorArray
+            .map(x => x.toString(16))
+            .join('');
+
+        return `#${color}`;
+    }
+
+    const color1 = colors();
+    const color2 = colors();
+    const caja1 = document.getElementById("caja-1");
+    const caja2 = document.getElementById("caja-2");
+    caja1.style.background = color1;
+    caja2.style.background = color2;
+
+    caja1.firstElementChild.innerHTML = `<span>${color1}</span>`;
+    caja2.firstElementChild.innerHTML = `<span>${color2}</span>`;
+</script>
+</body>
+</html>
